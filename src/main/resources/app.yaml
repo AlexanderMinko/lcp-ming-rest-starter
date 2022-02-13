@@ -1,0 +1,16 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/auth/realms/LCPRealm
+          jwk-set-uri: http://localhost:8080/auth/realms/LCPRealm/protocol/openid-connect/certs
+      client:
+        registration:
+          keycloak:
+            authorization-grant-type: client_credentials
+            client-id: ${CLIENT_ID:lenovo-client}
+            client-secret: ${CLIENT_SECRET:2695afda-f08f-420d-8bec-3d90ea7cc6c3}
+        provider:
+          keycloak:
+            token-uri: http://localhost:8080/auth/realms/LCPRealm/protocol/openid-connect/token
