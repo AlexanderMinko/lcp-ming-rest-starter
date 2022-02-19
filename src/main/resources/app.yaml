@@ -10,7 +10,16 @@ spring:
           keycloak:
             authorization-grant-type: client_credentials
             client-id: ${CLIENT_ID:lenovo-client}
-            client-secret: ${CLIENT_SECRET:2695afda-f08f-420d-8bec-3d90ea7cc6c3}
+            client-secret: ${CLIENT_SECRET:}
         provider:
           keycloak:
             token-uri: http://localhost:8080/auth/realms/LCPRealm/protocol/openid-connect/token
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+application.web-security-config:
+  csrf-ignoring-url: /swagger-ui.html, /swagger-ui/**, /v3/api-docs/**
+  custom-unsecured-endpoints:
+  common-unsecured-endpoints: /v2/api-docs, /configuration/ui, /swagger-resources/**, /configuration/security, /swagger-ui.html, /webjars/**, /swagger-ui/**, /v3/api-docs/**

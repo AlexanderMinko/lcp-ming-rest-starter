@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.lenovo</groupId>
     <artifactId>rest-starter</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.13</version>
     <name>lcp-ming-rest-starter</name>
     <description>lcp-ming-rest-starter</description>
     <properties>
@@ -67,6 +67,11 @@
             <groupId>io.projectreactor</groupId>
             <artifactId>reactor-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
         </dependency>
     </dependencies>
 
