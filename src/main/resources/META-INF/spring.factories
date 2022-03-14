@@ -3,4 +3,4 @@ com.lenovo.configuration.WebSecurityConfig
   
 # Environment Post Processor
 org.springframework.boot.env.EnvironmentPostProcessor=\
-com.lenovo.configuration.AuthorizationPropertiesLoader
+com.lenovo.configuration.ApplicationPropertiesLoader

@@ -1,6 +1,10 @@
 package com.lenovo.configuration;
 
+import com.lenovo.model.events.Event;
+import com.lenovo.service.EventProducerService;
+import com.lenovo.service.LcpJwtService;
 import org.springframework.context.annotation.Bean;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.security.oauth2.client.web.OAuth2AuthorizedClientRepository;
 import org.springframework.security.oauth2.client.web.reactive.function.client.ServletOAuth2AuthorizedClientExchangeFilterFunction;
@@ -31,5 +35,20 @@ public class BeanConfig {
     @Bean
     WebConfig webConfig() {
         return new WebConfig();
+    }
+
+    @Bean
+    LcpJwtService lcpJwtService() {
+        return new LcpJwtService();
+    }
+
+    @Bean
+    KafkaConfig kafkaConfig() {
+        return new KafkaConfig();
+    }
+
+    @Bean
+    EventProducerService eventProducerService(KafkaTemplate<String, Event> kafkaTemplate) {
+        return new EventProducerService(kafkaTemplate);
     }
 }
