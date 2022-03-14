@@ -1,5 +1,6 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.lenovo.configuration.WebSecurityConfig
+com.lenovo.configuration.WebSecurityConfig, \
+com.lenovo.configuration.SwaggerConfig
   
 # Environment Post Processor
 org.springframework.boot.env.EnvironmentPostProcessor=\

@@ -32,9 +32,20 @@ spring:
       properties:
         spring.json.trusted.packages: "*"
 
+swagger:
+  oauth:
+    authorization-endpoint: ${KEYCLOAK_HOST:http://localhost:8080}/auth/realms/${KEYCLOAK_REALM:LCPRealm}/protocol/openid-connect/auth
+    token-endpoint: ${KEYCLOAK_HOST:http://localhost:8080}/auth/realms/${KEYCLOAK_REALM:LCPRealm}/protocol/openid-connect/token
+
 springdoc:
   swagger-ui:
+    url: /v3/api-docs
     path: /swagger-ui.html
+    show-common-extensions: true
+    oauth:
+      client-id: swagger-client
+      client-secret: swagger-secret
+      realm: LCPRealm
 
 application.web-security-config:
   csrf-ignoring-url: /swagger-ui.html, /swagger-ui/**, /v3/api-docs/**
