@@ -10,13 +10,15 @@
     </parent>
     <groupId>com.lenovo</groupId>
     <artifactId>rest-starter</artifactId>
-    <version>0.0.21</version>
+    <version>0.0.26</version>
     <name>lcp-ming-rest-starter</name>
     <description>lcp-ming-rest-starter</description>
     <properties>
         <java.version>11</java.version>
         <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
         <org.projectlombok.version>1.18.22</org.projectlombok.version>
+        <minio.version>8.1.0</minio.version>
+        <apache.tika>2.4.0</apache.tika>
     </properties>
 
     <distributionManagement>
@@ -62,7 +64,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.projectreactor</groupId>
@@ -88,6 +89,28 @@
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>1.5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.19.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-contract-stub-runner</artifactId>
+            <version>3.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.minio</groupId>
+            <artifactId>minio</artifactId>
+            <version>${minio.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>${apache.tika}</version>
         </dependency>
     </dependencies>
 

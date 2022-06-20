@@ -3,8 +3,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/auth/realms/LCPRealm
-          jwk-set-uri: http://localhost:8080/auth/realms/LCPRealm/protocol/openid-connect/certs
+          issuer-uri: ${KEYCLOAK_HOST:http://localhost:8080}/auth/realms/LCPRealm
+          jwk-set-uri: ${KEYCLOAK_HOST:http://localhost:8080}/auth/realms/LCPRealm/protocol/openid-connect/certs
       client:
         registration:
           keycloak:
@@ -13,7 +13,7 @@ spring:
             client-secret: ${CLIENT_SECRET:}
         provider:
           keycloak:
-            token-uri: http://localhost:8080/auth/realms/LCPRealm/protocol/openid-connect/token
+            token-uri: ${KEYCLOAK_HOST:http://localhost:8080}/auth/realms/LCPRealm/protocol/openid-connect/token
 
   kafka:
     producer:
@@ -51,3 +51,20 @@ application.web-security-config:
   csrf-ignoring-url: /swagger-ui.html, /swagger-ui/**, /v3/api-docs/**
   custom-unsecured-endpoints:
   common-unsecured-endpoints: /v2/api-docs, /configuration/ui, /swagger-resources/**, /configuration/security, /swagger-ui.html, /webjars/**, /swagger-ui/**, /v3/api-docs/**
+
+security:
+  oauth2:
+    providers:
+      keycloak:
+        base-uri: ${KEYCLOAK_HOST:http://localhost:8080}
+        issuer-path: /auth/realms/{realm}
+
+minio:
+  url: ${MINIO_URL:http://localhost:9000}
+  access-key: ${MINIO_ACCESS_KEY:testadmin}
+  secret-key: ${MINIO_SECRET_KEY:testadmin}
+  region: ${MINIO_REGION:us-west-2}
+  bucketName: ${MINIO_BUCKET_NAME:ming}
+  rootDirectory: ${MINIO_CURRENT_DIRECTORY:}
+  expiryTime: ${MINIO_PRESIGNED_URL_EXPIRY_TIME:1800} # 30 minutes
+  minPartSize: ${MINIO_MIN_UPLOAD_PART_SIZE:20971520} # 20MiB

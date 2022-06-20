@@ -43,11 +43,6 @@ public class BeanConfig {
     }
 
     @Bean
-    KafkaConfig kafkaConfig() {
-        return new KafkaConfig();
-    }
-
-    @Bean
     EventProducerService eventProducerService(KafkaTemplate<String, Event> kafkaTemplate) {
         return new EventProducerService(kafkaTemplate);
     }
