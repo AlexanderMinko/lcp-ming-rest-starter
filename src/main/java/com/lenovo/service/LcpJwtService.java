@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public class LcpJwtService {
 
-    private Optional<Jwt> getJwt() {
+    public Optional<Jwt> getJwt() {
         return Optional.of(SecurityContextHolder.getContext())
             .map(SecurityContext::getAuthentication)
             .filter(JwtAuthenticationToken.class::isInstance)
@@ -19,6 +19,10 @@ public class LcpJwtService {
 
     public String getEmail() {
         return getJwt().map(jwt -> jwt.getClaimAsString("email")).orElse(null);
+    }
+
+    public String getUserId() {
+        return getJwt().map(jwt -> jwt.getClaimAsString("sub")).orElse(null);
     }
 
 }

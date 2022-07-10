@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.lenovo</groupId>
     <artifactId>rest-starter</artifactId>
-    <version>0.0.26</version>
+    <version>0.0.33</version>
     <name>lcp-ming-rest-starter</name>
     <description>lcp-ming-rest-starter</description>
     <properties>

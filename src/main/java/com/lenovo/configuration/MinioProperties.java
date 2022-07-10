@@ -14,7 +14,8 @@ public class MinioProperties {
   private String accessKey;
   private String secretKey;
   private String region;
-  private String bucketName;
+  private String publicBucketName;
+  private String privateBucketName;
   private String rootDirectory;
   private int expiryTime;
   private int minPartSize;

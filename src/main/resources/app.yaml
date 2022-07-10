@@ -64,7 +64,8 @@ minio:
   access-key: ${MINIO_ACCESS_KEY:testadmin}
   secret-key: ${MINIO_SECRET_KEY:testadmin}
   region: ${MINIO_REGION:us-west-2}
-  bucketName: ${MINIO_BUCKET_NAME:ming}
+  publicBucketName: ${MINIO_PUBLIC_BUCKET_NAME:ming}
+  privateBucketName: ${MINIO_PRIVATE_BUCKET_NAME:ming-private}
   rootDirectory: ${MINIO_CURRENT_DIRECTORY:}
   expiryTime: ${MINIO_PRESIGNED_URL_EXPIRY_TIME:1800} # 30 minutes
   minPartSize: ${MINIO_MIN_UPLOAD_PART_SIZE:20971520} # 20MiB

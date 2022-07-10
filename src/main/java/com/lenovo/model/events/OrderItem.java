@@ -1,4 +1,4 @@
-package com.lenovo.model;
+package com.lenovo.model.events;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,10 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class NotificationEmail {
-
-    private String subject;
-    private String recipient;
-    private String body;
-
+public class OrderItem {
+  private String productId;
+  private Integer count;
 }
